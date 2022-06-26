@@ -1,7 +1,9 @@
 package com.example.pedrapapeltesouraspocklagarto;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -128,5 +130,21 @@ public class MainActivity extends AppCompatActivity {
             optionTextView.setText("O torneio terminou empatado.");
             iniciaTorneio();
         }
+    }
+
+    public void textViewStatusClick(View v){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle("Reiniciar o torneio?");
+        dialogBuilder.setMessage("Deseja reiniciar o torneio zerando o estado atual?");
+        dialogBuilder.setPositiveButton("Reiniciar",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        iniciaTorneio();
+                        atualizaStatus();
+                    }
+                });
+        dialogBuilder.create();
+        dialogBuilder.show();
     }
 }
