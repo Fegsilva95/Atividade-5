@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -92,11 +93,14 @@ public class MainActivity extends AppCompatActivity {
         switch (TABELA[jogada.valor][jogadaComputador.valor]) {
             case VITORIA:
                 pontosHumano += 3;
+                Toast.makeText(this, "Humano: "+jogada.toString()+", Computador: "+jogadaComputador.toString()+": Ponto para o humano." , Toast.LENGTH_SHORT).show();
                 break;
             case DERROTA:
+                Toast.makeText(this, "Humano: "+jogada.toString()+", Computador: "+jogadaComputador.toString()+": Ponto o computador." , Toast.LENGTH_SHORT).show();
                 pontosComputador += 3;
                 break;
             case EMPATE:
+                Toast.makeText(this, "Humano: "+jogada.toString()+", Computador: "+jogadaComputador.toString()+": Empate." , Toast.LENGTH_SHORT).show();
                 pontosHumano++;
                 pontosComputador++;
                 break;
